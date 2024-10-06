@@ -12,6 +12,10 @@ import CreateProduct from "./(routes)/dashboard/routes/create";
 import DashMain from "./(routes)/dashboard/components/dash-main";
 import Login from "./(routes)/login/login";
 import Reset from "./(routes)/reset/reset";
+import UpdateProduct from "./(routes)/dashboard/routes/update";
+import ResetPass from "./(routes)/reset/reset-pass";
+import Categories from "./(routes)/dashboard/routes/categories";
+import Search from "./(routes)/search/search";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +27,12 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "/products/:genre",
+        path: "/products/:category",
         element: <Products />,
+      },
+      {
+        path: "/search/:title",
+        element: <Search />,
       },
       {
         path: "/product/:id",
@@ -41,6 +49,10 @@ const router = createBrowserRouter([
             path: "reset",
             element: <Reset />,
           },
+          {
+            path: "new-pass/:id/:token",
+            element: <ResetPass />,
+          },
         ],
       },
 
@@ -55,6 +67,14 @@ const router = createBrowserRouter([
           {
             path: "create",
             element: <CreateProduct />,
+          },
+          {
+            path: "categories",
+            element: <Categories />,
+          },
+          {
+            path: "update/:id",
+            element: <UpdateProduct />,
           },
         ],
       },
